@@ -117,9 +117,32 @@
                 </pre>
             </div>
             <div class="col-12 col-lg-4">
-                <p>The code is structured in three functions</p>
-                <h5>displayMessage</h5>
-                <p>Shows a SweetAlert with the value of the <code>message</code> variable</p>
+                <p>The code is structured in three functions:</p>
+                <h5>FizzBuzz</h5>
+                <p>The entry point is the function, <code>getValues()</code>, which takes the values from the input
+                    forms on the Html. It then checks whether those values are
+                    numbers, displaying an error message if not. Otherwise, it checks whether the end number is
+                    greater than 10,000, displaying an error message in that case as well. Otherwise, it
+                    continues by intializing a variable <code>contentArray</code> with a function
+                    <code>generateFizzBuzz()</code> of three arguments, then runs a third function
+                    <code>displayFizzBuzz()</code> with the argument <code>contentArray</code>.</p>
+                <p>The second function, <code>generateFizzBuzz()</code>, is given three parameters, corresponding to the three
+                    arguments it was given inside the previous <code>getValues()</code> function. Then
+                    <code>generateFizzBuzz()</code> declares a variable <code>range</code> as an empty array. A <code>for()</code> loop
+                    examines each number in sequence from 1 to the value of <code>end</code>, pushing the number, fizz, buzz, or fizzbuzz into the array as determined by boolean logic and division remainders, and it increments the number by one and loops back,
+                    repeatedly until that number surpasses the value of the <code>end</code>, giving the array a processed version of every number from
+                    one to the end number.</p>
+                <p>The third function's, <code>displayFizzBuzz()</code>, parameter, <code>contentToDisplay</code> refers to the array generated
+                    by the second function. It declares the variable <code>tableHtml</code>, and using a
+                    second <code>for()</code> loop, it assigns the value of the array index to the variable
+                    <code>currentContent</code> starting at index 0 for the starting value. Variable
+                    <code>tableRowHtml</code> is initialized with a template literal consisting of html code that creates a
+                    table cell for each iteration of the variable <code>currentContent</code> in the <code>for()</code> loop,
+                    using string interpolation to insert the variable. <code>tableHtml</code> is added to <code>tableRowHtml</code> incrementing in the <code>for()</code> loop
+                    until it contains html for every table cell of every number between one and the end
+                    number. Finally, when the length of the array equals the index that's selecting the currentContent,
+                    it exits the <code>for()</code> loop and inserts the value of <code>tableHtml</code> into the table body element
+                    in the Html. </p>
             </div>
         </div>
     </main>
