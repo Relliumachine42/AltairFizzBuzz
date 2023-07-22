@@ -25,7 +25,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/index.html">
                     <img src="/img/mark.png" height="30" alt="developer logo" />
-                    App Name
+                    FizzBuzz
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
                             <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/Relliumachine42">The Repo</a>
+                            <a class="nav-link" href="https://github.com/Relliumachine42/AltairFizzBuzz">The Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://schwartz-portfolio.netlify.app/">About</a>
@@ -63,24 +63,61 @@
             <div class="col-12 col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-js">
-                        function displayMessage() {
-                            let inputBox = document.getElementById('message');
-                            
-                            let message = inputBox.value;
-                        
-                            Swal.fire(
-                                {
-                                    backdrop: false,
-                                    title: 'App Name',
-                                    text: message
+                        function getValues() {
+                            let fizzNumber = document.getElementById('fizzValue').value;
+                            let buzzNumber = document.getElementById('buzzValue').value;
+                            let endNumber = document.getElementById('endValue').value;
+                            fizzNumber = Number(fizzNumber);
+                            buzzNumber = Number(buzzNumber);
+                            endNumber = Number(endNumber);
+                            if(isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(endNumber) == true) {
+                                Swal.fire({
+                                    title: "I'm sorry!",
+                                    text: 'We only accept numbers here.',
+                                    icon: 'error',
+                                    backdrop: false
+                                });
+                            } else if(endNumber > 10000) {
+                                Swal.fire({
+                                    title: '10,000 Limit',
+                                    text: "You don't really need more than 10,000.",
+                                    icon: 'error',
+                                    backdrop: false
+                                });
+                            } else {
+                                let contentArray = generateFizzBuzz(fizzNumber, buzzNumber, endNumber);
+                                displayFizzBuzz(contentArray);
+                            }
+                        }
+                        function generateFizzBuzz(fizz, buzz, end) {
+                            let range = [];
+                            for (let number = 1; number &lt;= end; number++) {
+                                if(number % fizz == 0 && number % buzz == 0) {
+                                    range.push('FizzBuzz');
+                                } else if(number % fizz == 0) {
+                                    range.push('Fizz');
+                                } else if(number % buzz == 0) {
+                                    range.push('Buzz');
+                                } else {
+                                    range.push(number);
                                 }
-                            );
+                            }
+                            return range;
+                        }
+                        function displayFizzBuzz(contentToDisplay) {
+                            let tableHtml = '';
+                            for(let index = 0; index &lt; contentToDisplay.length; index++) {
+                                let currentContent = contentToDisplay[index];
+                                let tableRowHtml = `&lt;tr>&lt;td>${currentContent}&lt;/td>&lt;/tr>`;
+                                tableHtml += tableRowHtml;
+                            }
+                            document.getElementById('results').innerHTML = tableHtml;
                         }
                     </code>
                 </pre>
             </div>
             <div class="col-12 col-lg-4">
-                <p>The code is structured in one function</p>
+                <p>The code is structured in three functions</p>
                 <h5>displayMessage</h5>
                 <p>Shows a SweetAlert with the value of the <code>message</code> variable</p>
             </div>
