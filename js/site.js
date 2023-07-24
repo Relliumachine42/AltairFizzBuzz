@@ -4,15 +4,15 @@ function getValues() {
     let endNumber = document.getElementById('endValue').value;
     fizzNumber = Number(fizzNumber);
     buzzNumber = Number(buzzNumber);
-    endNumber = Number(endNumber);
-    if(isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(endNumber) == true) {
+    endNumber = parseInt(endNumber);
+    if (isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(endNumber) == true) {
         Swal.fire({
             title: "I'm sorry!",
             text: 'We only accept numbers here.',
             icon: 'error',
             backdrop: false
         });
-    } else if(endNumber > 10000) {
+    } else if (endNumber > 10000) {
         Swal.fire({
             title: '10,000 Limit',
             text: "You don't really need more than 10,000.",
@@ -27,11 +27,11 @@ function getValues() {
 function generateFizzBuzz(fizz, buzz, end) {
     let range = [];
     for (let number = 1; number <= end; number++) {
-        if(number % fizz == 0 && number % buzz == 0) {
+        if (number % fizz == 0 && number % buzz == 0) {
             range.push('FizzBuzz');
-        } else if(number % fizz == 0) {
+        } else if (number % fizz == 0) {
             range.push('Fizz');
-        } else if(number % buzz == 0) {
+        } else if (number % buzz == 0) {
             range.push('Buzz');
         } else {
             range.push(number);
@@ -41,7 +41,7 @@ function generateFizzBuzz(fizz, buzz, end) {
 }
 function displayFizzBuzz(contentToDisplay) {
     let tableHtml = '';
-    for(let index = 0; index < contentToDisplay.length; index++) {
+    for (let index = 0; index < contentToDisplay.length; index++) {
         let currentContent = contentToDisplay[index];
         tableHtml += `<div class="col ${currentContent}">${currentContent}</div>`;
     }
