@@ -43,7 +43,7 @@ function displayFizzBuzz(contentToDisplay) {
     let tableHtml = '';
     for(let index = 0; index < contentToDisplay.length; index++) {
         let currentContent = contentToDisplay[index];
-        tableHtml += `<tr><td class="${currentContent}">${currentContent}</td></tr>`;
+        tableHtml += `<div class="col ${currentContent}">${currentContent}</div>`;
     }
     document.getElementById('results').innerHTML = tableHtml;
 }
