@@ -115,3 +115,15 @@ footer {
     font-size: 4rem;
     padding-left: .5rem;
 }
+
+.Fizz {
+    background-color: var(--gs-theme-700) !important;
+}
+
+.Buzz {
+    background-color: var(--gs-theme-300) !important;
+}
+
+.FizzBuzz {
+    background-color: var(--gs-theme-core) !important;
+}
