@@ -5,7 +5,9 @@ function getValues() {
     fizzNumber = Number(fizzNumber);
     buzzNumber = Number(buzzNumber);
     endNumber = parseInt(endNumber);
-    if (isNaN(fizzNumber) == true || isNaN(buzzNumber) == true || isNaN(endNumber) == true) {
+    if (isNaN(fizzNumber) == true
+        || isNaN(buzzNumber) == true
+        || isNaN(endNumber) == true) {
         Swal.fire({
             title: "I'm sorry!",
             text: 'We only accept numbers here.',
@@ -42,8 +44,7 @@ function generateFizzBuzz(fizz, buzz, end) {
 function displayFizzBuzz(contentToDisplay) {
     let tableHtml = '';
     for (let index = 0; index < contentToDisplay.length; index++) {
-        let currentContent = contentToDisplay[index];
-        tableHtml += `<div class="col ${currentContent}">${currentContent}</div>`;
+        tableHtml += `<div class="col ${contentToDisplay[index]}">${contentToDisplay[index]}</div>`;
     }
     document.getElementById('results').innerHTML = tableHtml;
 }
